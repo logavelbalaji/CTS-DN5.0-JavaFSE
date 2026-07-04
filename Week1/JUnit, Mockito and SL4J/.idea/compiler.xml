@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="different-appenders" />
+        <module name="logging-levels" />
+        <module name="parameterized-logging" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="junit-exceptions" target="11" />
+      <module name="junit-ordering" target="11" />
+      <module name="junit-parameterized" target="11" />
+      <module name="junit-suites" target="11" />
+      <module name="junit-timeout" target="11" />
+      <module name="mockito-adv-fileio" target="11" />
+      <module name="mockito-adv-multireturn" target="11" />
+      <module name="mockito-adv-network" target="11" />
+      <module name="mockito-adv-repository" target="11" />
+      <module name="mockito-adv-restclient" target="11" />
+      <module name="mockito-arg-matching" target="11" />
+      <module name="mockito-interaction-order" target="11" />
+      <module name="mockito-mock-stub" target="11" />
+      <module name="mockito-multiple-returns" target="11" />
+      <module name="mockito-verify-interactions" target="11" />
+      <module name="mockito-void-exceptions" target="11" />
+      <module name="mockito-void-methods" target="11" />
+      <module name="spring-test-calc" target="17" />
+      <module name="spring-test-integration" target="17" />
+      <module name="spring-test-mockmvc" target="17" />
+      <module name="spring-test-mockrepo" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

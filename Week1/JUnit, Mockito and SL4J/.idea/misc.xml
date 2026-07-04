@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/4JUnitSpringTest/Ex1_UnitTestBasic/Code/pom.xml" />
+        <option value="$PROJECT_DIR$/4JUnitSpringTest/Ex2_MockingRepository/Code/pom.xml" />
+        <option value="$PROJECT_DIR$/4JUnitSpringTest/Ex3_TestMockController/Code/pom.xml" />
+        <option value="$PROJECT_DIR$/4JUnitSpringTest/Ex4_IntegrationTestSpringBoot/Code/pom.xml" />
+        <option value="$PROJECT_DIR$/5SL4JLogging/Ex1_LoggingLevels/Code/pom.xml" />
+        <option value="$PROJECT_DIR$/5SL4JLogging/Ex2_ParameterizedLogging/Code/pom.xml" />
+        <option value="$PROJECT_DIR$/5SL4JLogging/Ex3_DifferentAppenders/Code/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_26" project-jdk-name="temurin-21" project-jdk-type="JavaSDK" />
+</project>
