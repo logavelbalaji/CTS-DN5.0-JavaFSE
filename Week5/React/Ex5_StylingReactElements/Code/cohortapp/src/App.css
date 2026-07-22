@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  min-height: 100vh;
+}
+.app-container {
+  max-width: 1000px;
+  width: 90%;
+  margin: 40px auto;
+  text-align: center;
+}
+h1 {
+  color: #0f172a;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+.cohorts-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+dl {
+  margin: 0;
+  padding: 0;
+}
+dt {
+  color: #64748b;
+  margin-top: 10px;
+}
+dd {
+  margin-left: 0;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
