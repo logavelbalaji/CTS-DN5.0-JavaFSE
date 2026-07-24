@@ -1,0 +1,66 @@
+================================================================================
+EXERCISE 5: CLEAN UP AND PUSH TO REMOTE GIT - LAB EXECUTION LOG
+================================================================================
+
+Step 1: Verify Initial Clean State on Master
+--------------------------------------------------------------------------------
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Step 2: List Available Branches
+--------------------------------------------------------------------------------
+$ git branch -a
+* master
+
+Step 3: Connect Remote Repository & Initial Push
+--------------------------------------------------------------------------------
+1. Set up tracking remote repository:
+   $ git remote add origin D:/Logavelbalaji A K/CTS/GitHub/Week6/Ex5_CleanUpPush/remote_repo.git
+
+2. Initial push to remote:
+   $ git push -u origin master
+   To D:\Logavelbalaji A K\CTS\GitHub\Week6\Ex5_CleanUpPush\remote_repo.git
+    * [new branch]      master -> master
+   Branch 'master' set up to track 'origin/master'.
+
+Step 4: Update Repository & Stage Changes
+--------------------------------------------------------------------------------
+1. Modify `app.js`:
+   // Updated feature
+
+2. Stage and commit changes:
+   $ git add app.js
+   $ git commit -m "Update app.js for remote sync"
+   [master ad6bcf8] Update app.js for remote sync
+    1 file changed, 1 insertion(+)
+
+Step 5: Pull and Push Back to Remote Git
+--------------------------------------------------------------------------------
+1. Pull from remote repository:
+   $ git pull origin master
+   From D:\Logavelbalaji A K\CTS\GitHub\Week6\Ex5_CleanUpPush\remote_repo
+    * branch            master     -> FETCH_HEAD
+   Already up to date.
+
+2. Push pending commits to remote repository:
+   $ git push origin master
+   To D:\Logavelbalaji A K\CTS\GitHub\Week6\Ex5_CleanUpPush\remote_repo.git
+      1108e83..ad6bcf8  master -> master
+
+Step 6: Verify Remote Synchronization
+--------------------------------------------------------------------------------
+1. Verify status:
+   $ git status
+   On branch master
+   Your branch is up to date with 'origin/master'.
+   nothing to commit, working tree clean
+
+2. Verify commit log:
+   $ git log --oneline --graph --decorate
+   * ad6bcf8 (HEAD -> master, origin/master) Update app.js for remote sync
+   * 1108e83 Initial commit for cleanup and push lab
+
+================================================================================
+STATUS: COMPLETED SUCCESSFULLY & VERIFIED
+================================================================================
