@@ -1,0 +1,68 @@
+================================================================================
+EXERCISE 2: GIT IGNORE - LAB EXECUTION LOG
+================================================================================
+
+Step 1: Environment & Repository Setup
+--------------------------------------------------------------------------------
+1. Initialize repository in code directory:
+   $ git init
+   Initialized empty Git repository in Ex2_GitIgnore/code/.git/
+
+2. Create sample files and log folder:
+   $ "Main application file." | Out-File -FilePath main.txt
+   $ "Application runtime log entry." | Out-File -FilePath app.log
+   $ New-Item -ItemType Directory -Force -Path log
+   $ "Server error log entry." | Out-File -FilePath log/server.log
+
+Step 2: Check Initial Status (Before .gitignore)
+--------------------------------------------------------------------------------
+$ git status
+On branch master
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	app.log
+	log/
+	main.txt
+
+nothing added to commit but untracked files present
+
+Step 3: Create .gitignore File
+--------------------------------------------------------------------------------
+Contents of .gitignore:
+  *.log
+  log/
+
+Step 4: Verify Status After Adding .gitignore (Verification)
+--------------------------------------------------------------------------------
+$ git status
+On branch master
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.gitignore
+	main.txt
+
+nothing added to commit but untracked files present
+
+Explanation:
+  `app.log` and the `log/` folder are ignored by Git as specified in `.gitignore`.
+
+Step 5: Commit and Final Status Check
+--------------------------------------------------------------------------------
+1. Stage and commit:
+   $ git add .gitignore main.txt
+   $ git commit -m "Add .gitignore and main.txt to repository"
+   [master (root-commit) 75695c1] Add .gitignore and main.txt to repository
+    2 files changed, 6 insertions(+)
+
+2. Final status check:
+   $ git status
+   On branch master
+   nothing to commit, working tree clean
+
+================================================================================
+STATUS: COMPLETED SUCCESSFULLY & VERIFIED
+================================================================================
