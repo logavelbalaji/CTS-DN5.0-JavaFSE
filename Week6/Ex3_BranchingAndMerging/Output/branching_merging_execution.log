@@ -1,0 +1,91 @@
+================================================================================
+EXERCISE 3: BRANCHING & MERGING - LAB EXECUTION LOG
+================================================================================
+
+Step 1: Initial Repository & Master Branch Setup
+--------------------------------------------------------------------------------
+1. Initialize repository:
+   $ git init
+   Initialized empty Git repository in Ex3_BranchingAndMerging/Code/.git/
+
+2. Create initial file and commit on master:
+   $ "Initial master branch content." | Out-File -FilePath main.txt
+   $ git add main.txt
+   $ git commit -m "Initial commit on master branch"
+   [master (root-commit) 1fec7a0] Initial commit on master branch
+    1 file changed, 1 insertion(+)
+
+Step 2: Branching
+--------------------------------------------------------------------------------
+1. Create new branch `GitNewBranch`:
+   $ git branch GitNewBranch
+
+2. List all branches (before switch):
+   $ git branch -a
+     GitNewBranch
+   * master
+
+3. Switch to `GitNewBranch`:
+   $ git checkout GitNewBranch
+   Switched to branch 'GitNewBranch'
+
+4. List all branches (after switch):
+   $ git branch -a
+   * GitNewBranch
+     master
+
+5. Add file and commit to `GitNewBranch`:
+   $ "Feature implementation in GitNewBranch." | Out-File -FilePath feature.txt
+   $ git add feature.txt
+   $ git commit -m "Add feature.txt to GitNewBranch"
+   [GitNewBranch 1a8ad6a] Add feature.txt to GitNewBranch
+    1 file changed, 1 insertion(+)
+
+6. Check status:
+   $ git status
+   On branch GitNewBranch
+   nothing to commit, working tree clean
+
+Step 3: Merging
+--------------------------------------------------------------------------------
+1. Switch back to `master`:
+   $ git checkout master
+   Switched to branch 'master'
+
+2. List out CLI differences between master and GitNewBranch:
+   $ git diff master GitNewBranch
+   diff --git a/feature.txt b/feature.txt
+   new file mode 100644
+   --- /dev/null
+   +++ b/feature.txt
+   @@ -0,0 +1 @@
+   +Feature implementation in GitNewBranch.
+
+3. Merge `GitNewBranch` into `master`:
+   $ git merge GitNewBranch
+   Updating 1fec7a0..1a8ad6a
+   Fast-forward
+    feature.txt | 1 +
+    1 file changed, 1 insertion(+)
+    create mode 100644 feature.txt
+
+4. Observe graph log after merging:
+   $ git log --oneline --graph --decorate
+   * 1a8ad6a (HEAD -> master, GitNewBranch) Add feature.txt to GitNewBranch
+   * 1fec7a0 Initial commit on master branch
+
+5. Delete branch `GitNewBranch`:
+   $ git branch -d GitNewBranch
+   Deleted branch GitNewBranch (was 1a8ad6a).
+
+6. Verify status and branches after deletion:
+   $ git status
+   On branch master
+   nothing to commit, working tree clean
+
+   $ git branch -a
+   * master
+
+================================================================================
+STATUS: COMPLETED SUCCESSFULLY & ALL RULES COMPLIED WITH
+================================================================================
