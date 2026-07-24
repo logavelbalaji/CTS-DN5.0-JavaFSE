@@ -1,0 +1,17 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# IDE / Editor configuration
+.idea/
+.vscode/
+
+# Build and temporary outputs
+out/
+build/
+dist/
+
+# Log files
+*.log
+hs_err_pid*.log
+replay_pid*.log
