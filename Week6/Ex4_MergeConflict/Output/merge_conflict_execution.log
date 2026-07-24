@@ -1,0 +1,111 @@
+================================================================================
+EXERCISE 4: MERGE CONFLICT RESOLUTION - LAB EXECUTION LOG
+================================================================================
+
+Step 1: Verify Initial Clean State on Master
+--------------------------------------------------------------------------------
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Step 2: Create Branch `GitWork` and Add `hello.xml`
+--------------------------------------------------------------------------------
+1. Create and switch to `GitWork`:
+   $ git checkout -b GitWork
+   Switched to a new branch 'GitWork'
+
+2. Add `hello.xml` in `GitWork`:
+   <greeting>
+     <message>Hello from GitWork branch</message>
+   </greeting>
+
+3. Commit changes in `GitWork`:
+   $ git add hello.xml
+   $ git commit -m "Add hello.xml in GitWork branch"
+   [GitWork fb9eee7] Add hello.xml in GitWork branch
+
+Step 3: Add Conflicting `hello.xml` on Master
+--------------------------------------------------------------------------------
+1. Switch to `master`:
+   $ git checkout master
+   Switched to branch 'master'
+
+2. Add conflicting `hello.xml` in `master`:
+   <greeting>
+     <message>Hello from master branch</message>
+   </greeting>
+
+3. Commit changes on `master`:
+   $ git add hello.xml
+   $ git commit -m "Add hello.xml in master branch"
+   [master 48251c1] Add hello.xml in master branch
+
+Step 4: Check Log and CLI Differences
+--------------------------------------------------------------------------------
+1. Graph log before merge:
+   $ git log --oneline --graph --decorate --all
+   * 48251c1 (HEAD -> master) Add hello.xml in master branch
+   | * fb9eee7 (GitWork) Add hello.xml in GitWork branch
+   |/
+   * be2af75 Initial commit
+
+2. CLI diff:
+   $ git diff master GitWork
+
+Step 5: Merge and Trigger Conflict
+--------------------------------------------------------------------------------
+$ git merge GitWork
+Auto-merging hello.xml
+CONFLICT (add/add): Merge conflict in hello.xml
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ Get-Content hello.xml
+<greeting>
+<<<<<<< HEAD
+  <message>Hello from master branch</message>
+=======
+  <message>Hello from GitWork branch</message>
+>>>>>>> GitWork
+</greeting>
+
+Step 6: Resolve Conflict & Commit
+--------------------------------------------------------------------------------
+1. Resolve content in `hello.xml`:
+   <greeting>
+     <message>Hello from master and GitWork merged</message>
+   </greeting>
+
+2. Commit resolution:
+   $ git add hello.xml
+   $ git commit -m "Resolve merge conflict in hello.xml"
+   [master 64f6db9] Resolve merge conflict in hello.xml
+
+Step 7: Add `.gitignore` & Branch Cleanup
+--------------------------------------------------------------------------------
+1. Add `.gitignore` for backup files (*.orig, *.bak):
+   $ git add .gitignore
+   $ git commit -m "Add .gitignore for backup files"
+   [master 0c95103] Add .gitignore for backup files
+
+2. List branches:
+   $ git branch -a
+     GitWork
+   * master
+
+3. Delete branch `GitWork`:
+   $ git branch -d GitWork
+   Deleted branch GitWork (was fb9eee7).
+
+4. Verify final graph log:
+   $ git log --oneline --graph --decorate
+   * 0c95103 (HEAD -> master) Add .gitignore for backup files
+   *   64f6db9 Resolve merge conflict in hello.xml
+   |\
+   | * fb9eee7 Add hello.xml in GitWork branch
+   * | 48251c1 Add hello.xml in master branch
+   |/
+   * be2af75 Initial commit
+
+================================================================================
+STATUS: COMPLETED SUCCESSFULLY & VERIFIED
+================================================================================
