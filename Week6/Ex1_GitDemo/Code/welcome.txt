@@ -1,0 +1,2 @@
+Welcome to Git Version Control System!
+Lab exercise completed successfully.

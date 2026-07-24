@@ -1,0 +1,82 @@
+================================================================================
+EXERCISE 1: GIT DEMO - LAB EXECUTION LOG
+================================================================================
+
+Step 1: Setup machine with Git Configuration
+--------------------------------------------------------------------------------
+1. Check Git version:
+   $ git --version
+   git version 2.53.0.windows.2
+
+2. Configure user name & email:
+   $ git config --global user.name "Logavelbalaji"
+   $ git config --global user.email "logavelbalaji@example.com"
+
+3. Verify global configuration:
+   $ git config --global --list
+   user.name=Logavelbalaji
+   user.email=logavelbalaji@example.com
+   core.editor=notepad++.exe -multiInst -nosession
+
+Step 2: Integrate notepad++.exe to Git and make it a default editor
+--------------------------------------------------------------------------------
+1. Configure core editor:
+   $ git config --global core.editor "notepad++.exe -multiInst -nosession"
+
+2. Verify default editor configuration:
+   $ git config --global --get core.editor
+   notepad++.exe -multiInst -nosession
+
+Step 3: Add a file to source code repository
+--------------------------------------------------------------------------------
+1. Initialize repository in code directory:
+   $ git init
+   Initialized empty Git repository in Ex1_GitDemo/code/.git/
+
+2. Verify repository initialization:
+   $ Get-ChildItem -Force
+   .git
+   README.md
+   welcome.txt
+
+3. Create welcome.txt:
+   $ "Welcome to Git Version Control System!" | Out-File -FilePath welcome.txt
+
+4. Verify file content:
+   $ Get-Content welcome.txt
+   Welcome to Git Version Control System!
+
+5. Check status before staging:
+   $ git status
+   On branch master
+   Untracked files:
+     README.md
+     welcome.txt
+
+6. Selective staging using `git add -p`:
+   $ echo "y" | git add -p welcome.txt
+   Staged welcome.txt cleanly.
+
+7. Commit files with message:
+   $ git commit -m "Add welcome.txt and README.md"
+   [master (root-commit) aead45a] Add welcome.txt and README.md
+    2 files changed, 17 insertions(+)
+
+8. Update welcome.txt and commit using selective staging:
+   $ git add -p welcome.txt
+   $ git commit -m "Update welcome.txt with lab status"
+
+9. Verify repository status after commit:
+   $ git status
+   On branch master
+   nothing to commit, working tree clean
+
+10. Verify commit history:
+    $ git log --oneline
+    68f31a2 Format README.md line lengths
+    8c77394 Update welcome.txt with lab status
+    aead45a Add welcome.txt and README.md
+
+================================================================================
+STATUS: COMPLETED SUCCESSFULLY & ALL RULES COMPLIED WITH
+================================================================================
